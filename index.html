@@ -4913,21 +4913,30 @@
     }
 ];
 
-      function cercaCentroVaccinale() {
-    const comuneInput = document.getElementById('comuneInput').value;
+     function cercaCentroVaccinale() {
+    const comuneInput = document.getElementById('comuneInput').value.trim().toLowerCase();
     const risultatiDiv = document.getElementById('risultati');
     risultatiDiv.innerHTML = ''; 
 
-    const comuneTrovato = dataset.find(item => item.Comune.toLowerCase() === comuneInput.toLowerCase());
+    const comuneTrovato = dataset.find(item => item.Comune.toLowerCase() === comuneInput);
 
     if (comuneTrovato) {
-        // Itera su ogni proprietà dell'oggetto comuneTrovato
-        Object.keys(comuneTrovato).forEach(campo => {
-            // Controlla se il campo esiste ed è non vuoto
-            if (comuneTrovato[campo] && comuneTrovato[campo].trim() !== '') {
-                const p = document.createElement('p');
-                p.textContent = `${campo}: ${comuneTrovato[campo]}`;
-                risultatiDiv.appendChild(p);
+        // Definisci i tipi di dati che vuoi mostrare e il loro numero
+        const tipiDati = ['Zona', 'Centro Vaccinale', 'Comune', 'Indirizzo', 'Tel', 'Mail'];
+        const numeroDati = 9; // Numero massimo di campi da visualizzare
+
+        // Itera per ogni tipo di dato
+        tipiDati.forEach(tipo => {
+            // Per ogni tipo, controlla tutti i numeri da 1 a numeroDati
+            for(let i = 1; i <= numeroDati; i++) {
+                const chiave = `${tipo} ${i}`;
+                const valore = comuneTrovato[chiave];
+                // Se il valore esiste ed è non vuoto, visualizzalo
+                if (valore && valore.trim() !== '') {
+                    const p = document.createElement('p');
+                    p.textContent = `${chiave}: ${valore}`;
+                    risultatiDiv.appendChild(p);
+                }
             }
         });
     } else {
