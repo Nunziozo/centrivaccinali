@@ -4913,34 +4913,28 @@
     }
 ];
 
-        function cercaCentroVaccinale() {
-            const comuneInput = document.getElementById('comuneInput').value;
-            const risultatiDiv = document.getElementById('risultati');
-            risultatiDiv.innerHTML = ''; 
+      function cercaCentroVaccinale() {
+    const comuneInput = document.getElementById('comuneInput').value;
+    const risultatiDiv = document.getElementById('risultati');
+    risultatiDiv.innerHTML = ''; 
 
-            const comuneTrovato = dataset.find(item => item.Comune.toLowerCase() === comuneInput.toLowerCase());
+    const comuneTrovato = dataset.find(item => item.Comune.toLowerCase() === comuneInput.toLowerCase());
 
-            if (comuneTrovato) {
-                const datiDaVisualizzare = [
-                    'Zona',
-                    'Centro Vaccinale 1',
-                    'Comune 1',
-                    'Indirizzo 1',
-                    'Tel 1',
-                    'Mail 1',
-                ];
-
-                datiDaVisualizzare.forEach(campo => {
-                    if (comuneTrovato[campo]) { // Se il campo esiste ed è non vuoto
-                        const p = document.createElement('p');
-                        p.textContent = `${campo}: ${comuneTrovato[campo]}`;
-                        risultatiDiv.appendChild(p);
-                    }
-                });
-            } else {
-                risultatiDiv.textContent = 'Nessun risultato trovato per il comune inserito, assicurarsi di aver inserito correttamente il nome';
+    if (comuneTrovato) {
+        // Itera su ogni proprietà dell'oggetto comuneTrovato
+        Object.keys(comuneTrovato).forEach(campo => {
+            // Controlla se il campo esiste ed è non vuoto
+            if (comuneTrovato[campo] && comuneTrovato[campo].trim() !== '') {
+                const p = document.createElement('p');
+                p.textContent = `${campo}: ${comuneTrovato[campo]}`;
+                risultatiDiv.appendChild(p);
             }
-        }
+        });
+    } else {
+        risultatiDiv.textContent = 'Nessun risultato trovato per il comune inserito, assicurarsi di aver inserito correttamente il nome.';
+    }
+}
+
     </script>
 
 <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
