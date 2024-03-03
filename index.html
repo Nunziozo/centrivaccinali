@@ -4414,33 +4414,38 @@
 ];
 
     function cercaCentroVaccinale() {
-            const comuneInput = document.getElementById('comuneInput').value;
-            const risultatiDiv = document.getElementById('risultati');
-            risultatiDiv.innerHTML = ''; // Pulisce i risultati precedenti
+    const comuneInput = document.getElementById('comuneInput').value.trim().toLowerCase();
+    const risultatiDiv = document.getElementById('risultati');
+    risultatiDiv.innerHTML = ''; // Pulisce i risultati precedenti
 
-            const comuneTrovato = dataset.find(item => item.Comune.toLowerCase() === comuneInput.toLowerCase());
+    const comuneTrovato = dataset.find(item => item.Comune.toLowerCase().includes(comuneInput));
 
-            if (comuneTrovato) {
-                const datiDaVisualizzare = [
-                    'Zona',
-                    'Centro Vaccinale 1',
-                    'Comune 1',
-                    'Indirizzo 1',
-                    'Tel 1',
-                    'Mail 1',
-                ];
+    if (comuneTrovato) {
+        // Elabora tutti i campi numerati per ciascuna categoria (es. Centro Vaccinale, Comune, Indirizzo, ecc.)
+        for(let i = 1; i <= 8; i++) {
+            const centroVaccinale = comuneTrovato[`Centro Vaccinale ${i}`];
+            const comune = comuneTrovato[`Comune ${i}`];
+            const indirizzo = comuneTrovato[`Indirizzo ${i}`];
+            const tel = comuneTrovato[`Tel ${i}`];
+            const mail = comuneTrovato[`Mail ${i}`];
 
-                datiDaVisualizzare.forEach(campo => {
-                    if (comuneTrovato[campo]) { // Se il campo esiste ed è non vuoto
-                        const p = document.createElement('p');
-                        p.textContent = `${campo}: ${comuneTrovato[campo]}`;
-                        risultatiDiv.appendChild(p);
-                    }
-                });
-            } else {
-                risultatiDiv.textContent = 'Nessun risultato trovato per il comune inserito.';
+            // Se almeno uno dei campi (ad esempio, Centro Vaccinale) non è vuoto, visualizza i dati
+            if (centroVaccinale || comune || indirizzo || tel || mail) {
+                risultatiDiv.innerHTML += `
+                    <div>
+                        <p>Centro Vaccinale ${i}: ${centroVaccinale || 'N/D'}</p>
+                        <p>Comune ${i}: ${comune || 'N/D'}</p>
+                        <p>Indirizzo ${i}: ${indirizzo || 'N/D'}</p>
+                        <p>Tel ${i}: ${tel || 'N/D'}</p>
+                        <p>Mail ${i}: ${mail || 'N/D'}</p>
+                    </div>
+                `;
             }
         }
+    } else {
+        risultatiDiv.innerHTML = '<p>Nessun risultato trovato per il comune inserito. Assicurati di averlo digitato correttamente.</p>';
+    }
+}
 
     </script>
     
