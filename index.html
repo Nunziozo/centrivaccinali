@@ -4,11 +4,6 @@
     <title>Ricerca Centri Vaccinali</title>
 </head>
 <body>
-    <style>
-    body {
-        font-family: 'Roboto', sans-serif;
-    }
-</style>
     <label for="comuneInput">Comune di residenza o domicilio:</label>
     <input type="text" id="comuneInput" placeholder="Comune"/>
     <button onclick="cercaCentroVaccinale()">Cerca</button>
@@ -4440,14 +4435,14 @@
 
             // Crea una tabella solo se c'è almeno un dato per il Centro Vaccinale corrente
             if (centroVaccinale || comune || indirizzo || tel || mail) {
-                let tabella = `<h3>Centro Vaccinale ${i}</h3><table><tbody>`;
+                let tabella = `<h3>${centroVaccinale}</h3><table><tbody>`;
 
                 // Aggiungi ogni riga solo se il dato non è vuoto
-                if (centroVaccinale) tabella += `<tr><td>Centro Vaccinale</td><td>${centroVaccinale}</td></tr>`;
+                if (centroVaccinale) tabella += `<tr><td>${centroVaccinale}</td></tr>`;
                 if (comune) tabella += `<tr><td>${comune}</td></tr>`;
                 if (indirizzo) tabella += `<tr><td>${indirizzo}</td></tr>`;
-                if (tel) tabella += `<tr><td>Telefono</td><td>${tel}</td></tr>`;
-                if (mail) tabella += `<tr><td>Email</td><td>${mail}</td></tr>`;
+                if (tel) tabella += `<tr><td>Telefono:</td><td>${tel}</td></tr>`;
+                if (mail) tabella += `<tr><td>E-mail:</td><td>${mail}</td></tr>`;
 
                 tabella += `</tbody></table>`;
                 risultatiDiv.innerHTML += tabella; // Aggiunge la tabella al div dei risultati
