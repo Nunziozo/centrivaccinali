@@ -4416,33 +4416,33 @@
     function cercaCentroVaccinale() {
     const comuneInput = document.getElementById('comuneInput').value.trim().toLowerCase();
     const risultatiDiv = document.getElementById('risultati');
-    risultatiDiv.innerHTML = '';
+    risultatiDiv.innerHTML = ''; // Pulisce i risultati precedenti
 
     const comuneTrovato = dataset.find(item => item.Comune.toLowerCase().includes(comuneInput));
 
-if (comuneTrovato) {
-        if(comuneTrovato.Zona) {
-            const zonaHeader = document.createElement('h2');
-            zonaHeader.textContent = `Zona ${comuneTrovato.Zona}`;
-            risultatiDiv.appendChild(zonaHeader);
-      
-        for(let i = 1; i <= 8; i++) {
+    if (comuneTrovato) {
+        // Se è stato trovato un comune, aggiungi un'intestazione con la Zona
+        const zonaHeader = document.createElement('h2');
+        zonaHeader.textContent = `Zona: ${comuneTrovato.Zona}`;
+        risultatiDiv.appendChild(zonaHeader);
+
+        for(let i = 1; i <= 8; i++) { // Cicla fino all'8 come richiesto
             const centroVaccinale = comuneTrovato[`Centro Vaccinale ${i}`];
             const comune = comuneTrovato[`Comune ${i}`];
             const indirizzo = comuneTrovato[`Indirizzo ${i}`];
             const tel = comuneTrovato[`Tel ${i}`];
             const mail = comuneTrovato[`Mail ${i}`];
 
-        
+            // Crea una tabella solo se c'è almeno un dato per il Centro Vaccinale corrente
             if (centroVaccinale || comune || indirizzo || tel || mail) {
                 let tabella = `<h3>Centro Vaccinale ${i}</h3><table><tbody>`;
 
                 // Aggiungi ogni riga solo se il dato non è vuoto
-                if (centroVaccinale) tabella += `<tr><td>Centro Vaccinale:</td><td>${centroVaccinale}</td></tr>`;
-                if (comune) tabella += `<tr><td>Comune:</td><td>${comune}</td></tr>`;
-                if (indirizzo) tabella += `<tr><td>Indirizzo:</td><td>${indirizzo}</td></tr>`;
-                if (tel) tabella += `<tr><td>Telefono:</td><td>${tel}</td></tr>`;
-                if (mail) tabella += `<tr><td>E-mail:</td><td>${mail}</td></tr>`;
+                if (centroVaccinale) tabella += `<tr><td>Centro Vaccinale</td><td>${centroVaccinale}</td></tr>`;
+                if (comune) tabella += `<tr><td>Comune</td><td>${comune}</td></tr>`;
+                if (indirizzo) tabella += `<tr><td>Indirizzo</td><td>${indirizzo}</td></tr>`;
+                if (tel) tabella += `<tr><td>Telefono</td><td>${tel}</td></tr>`;
+                if (mail) tabella += `<tr><td>Email</td><td>${mail}</td></tr>`;
 
                 tabella += `</tbody></table>`;
                 risultatiDiv.innerHTML += tabella; // Aggiunge la tabella al div dei risultati
