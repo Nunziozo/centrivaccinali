@@ -61,7 +61,7 @@
         "Mail 9": ""
     },
     {
-        "Comune": " Massa",
+        "Comune": "Massa",
         "Zona": "Apuane",
         "Centro Vaccinale 1": "",
         "Centro Vaccinale 2": "",
@@ -110,7 +110,7 @@
         "Mail 9": ""
     },
     {
-        "Comune": " Montignoso",
+        "Comune": "Montignoso",
         "Zona": "Apuane",
         "Centro Vaccinale 1": "",
         "Centro Vaccinale 2": "",
@@ -208,7 +208,7 @@
         "Mail 9": ""
     },
     {
-        "Comune": " Bagnone",
+        "Comune": "Bagnone",
         "Zona": "Lunigiana",
         "Centro Vaccinale 1": "",
         "Centro Vaccinale 2": "",
@@ -257,7 +257,7 @@
         "Mail 9": ""
     },
     {
-        "Comune": " Casola in Lunigiana",
+        "Comune": "Casola in Lunigiana",
         "Zona": "Lunigiana",
         "Centro Vaccinale 1": "",
         "Centro Vaccinale 2": "",
@@ -306,7 +306,7 @@
         "Mail 9": ""
     },
     {
-        "Comune": " Comano",
+        "Comune": "Comano",
         "Zona": "Lunigiana",
         "Centro Vaccinale 1": "",
         "Centro Vaccinale 2": "",
@@ -4942,5 +4942,46 @@
             }
         }
     </script>
+
+<script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+const opzioniFuse = {
+        includeScore: true, // Opzionale: include il punteggio della corrispondenza
+        keys: ["Comune"]
+    };
+
+    const fuse = new Fuse(dataset, opzioniFuse);
+
+    function cercaCentroVaccinale() {
+        const comuneInput = document.getElementById('comuneInput').value;
+        const risultatiDiv = document.getElementById('risultati');
+        risultatiDiv.innerHTML = ''; // Pulisce i risultati precedenti
+
+        const risultati = fuse.search(comuneInput);
+
+        if (risultati.length > 0) {
+            const comuneTrovato = risultati[0].item; // Prende il primo risultato come più rilevante
+
+            const datiDaVisualizzare = [
+                'Zona',
+                'Centro Vaccinale 1',
+                'Comune 1',
+                'Indirizzo 1',
+                'Tel 1',
+                'Mail 1',
+            ];
+
+            datiDaVisualizzare.forEach(campo => {
+                if (comuneTrovato[campo]) { // Se il campo esiste ed è non vuoto
+                    const p = document.createElement('p');
+                    p.textContent = `${campo}: ${comuneTrovato[campo]}`;
+                    risultatiDiv.appendChild(p);
+                }
+            });
+        } else {
+            risultatiDiv.textContent = 'Nessun risultato trovato per il comune inserito.';
+        }
+    }
+</script>
+    
 </body>
 </html>
