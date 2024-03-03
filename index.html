@@ -4413,36 +4413,34 @@
     }
 ];
 
-     function cercaCentroVaccinale() {
-    const comuneInput = document.getElementById('comuneInput').value.trim().toLowerCase();
-    const risultatiDiv = document.getElementById('risultati');
-    risultatiDiv.innerHTML = ''; 
+    function cercaCentroVaccinale() {
+            const comuneInput = document.getElementById('comuneInput').value;
+            const risultatiDiv = document.getElementById('risultati');
+            risultatiDiv.innerHTML = ''; // Pulisce i risultati precedenti
 
-    const comuneTrovato = dataset.find(item => item.Comune.toLowerCase() === comuneInput);
+            const comuneTrovato = dataset.find(item => item.Comune.toLowerCase() === comuneInput.toLowerCase());
 
-    if (comuneTrovato) {
-        // Definisci i tipi di dati che vuoi mostrare e il loro numero
-        const tipiDati = ['Zona', 'Centro Vaccinale', 'Comune', 'Indirizzo', 'Tel', 'Mail'];
-        const numeroDati = 8; // Numero massimo di campi da visualizzare
+            if (comuneTrovato) {
+                const datiDaVisualizzare = [
+                    'Zona',
+                    'Centro Vaccinale 1',
+                    'Comune 1',
+                    'Indirizzo 1',
+                    'Tel 1',
+                    'Mail 1',
+                ];
 
-        // Itera per ogni tipo di dato
-        tipiDati.forEach(tipo => {
-            // Per ogni tipo, controlla tutti i numeri da 1 a numeroDati
-            for(let i = 1; i <= numeroDati; i++) {
-                const chiave = `${tipo} ${i}`;
-                const valore = comuneTrovato[chiave];
-                // Se il valore esiste ed è non vuoto, visualizzalo
-                if (valore && valore.trim() !== '') {
-                    const p = document.createElement('p');
-                    p.textContent = `${chiave}: ${valore}`;
-                    risultatiDiv.appendChild(p);
-                }
+                datiDaVisualizzare.forEach(campo => {
+                    if (comuneTrovato[campo]) { // Se il campo esiste ed è non vuoto
+                        const p = document.createElement('p');
+                        p.textContent = `${campo}: ${comuneTrovato[campo]}`;
+                        risultatiDiv.appendChild(p);
+                    }
+                });
+            } else {
+                risultatiDiv.textContent = 'Nessun risultato trovato per il comune inserito.';
             }
-        });
-    } else {
-        risultatiDiv.textContent = 'Nessun risultato trovato per il comune inserito, assicurarsi di aver inserito correttamente il nome.';
-    }
-}
+        }
 
     </script>
 
