@@ -4443,23 +4443,6 @@
         }
 
     </script>
-
-<script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
-<script>
-const options = {
-  includeScore: true,
-  isCaseSensitive: false,
-  threshold: 0.4,
-};
-
-const processedData = data.map(item => ({
-  ...item,
-  Comune: item.Comune.replace(/\s+/g, '')
-}));
-const searchTerm = "Carr ara".replace(/\s+/g, '');
-const fuse = new Fuse(processedData, options);
-const results = fuse.search(searchTerm);
-</script>
     
 </body>
 </html>
