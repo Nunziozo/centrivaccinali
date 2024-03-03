@@ -4944,43 +4944,20 @@
     </script>
 
 <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
-const opzioniFuse = {
-        includeScore: true, // Opzionale: include il punteggio della corrispondenza
-        keys: ["Comune"]
-    };
+<script>
+const options = {
+  includeScore: true,
+  isCaseSensitive: false,
+  threshold: 0.4,
+};
 
-    const fuse = new Fuse(dataset, opzioniFuse);
-
-    function cercaCentroVaccinale() {
-        const comuneInput = document.getElementById('comuneInput').value;
-        const risultatiDiv = document.getElementById('risultati');
-        risultatiDiv.innerHTML = ''; // Pulisce i risultati precedenti
-
-        const risultati = fuse.search(comuneInput);
-
-        if (risultati.length > 0) {
-            const comuneTrovato = risultati[0].item; // Prende il primo risultato come più rilevante
-
-            const datiDaVisualizzare = [
-                'Zona',
-                'Centro Vaccinale 1',
-                'Comune 1',
-                'Indirizzo 1',
-                'Tel 1',
-                'Mail 1',
-            ];
-
-            datiDaVisualizzare.forEach(campo => {
-                if (comuneTrovato[campo]) { // Se il campo esiste ed è non vuoto
-                    const p = document.createElement('p');
-                    p.textContent = `${campo}: ${comuneTrovato[campo]}`;
-                    risultatiDiv.appendChild(p);
-                }
-            });
-        } else {
-            risultatiDiv.textContent = 'Nessun risultato trovato per il comune inserito.';
-        }
-    }
+const processedData = data.map(item => ({
+  ...item,
+  Comune: item.Comune.replace(/\s+/g, '')
+}));
+const searchTerm = "Carr ara".replace(/\s+/g, '');
+const fuse = new Fuse(processedData, options);
+const results = fuse.search(searchTerm);
 </script>
     
 </body>
