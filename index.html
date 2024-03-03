@@ -4435,9 +4435,9 @@
 
             // Crea una tabella solo se c'è almeno un dato per il Centro Vaccinale corrente
             if (centroVaccinale || comune || indirizzo || tel || mail) {
-                let tabella = `<h3>${centroVaccinale}</h3><table><tbody>`;
 
                 // Aggiungi ogni riga solo se il dato non è vuoto
+                if (centroVaccinale) tabella += `<tr><td><b>${centroVaccinale}</b></td></tr>`;
                 if (indirizzo) tabella += `<tr><td>${indirizzo}</td></tr>`;
                 if (comune) tabella += `<tr><td>${comune}</td></tr>`;
                 if (tel) tabella += `<tr><td>Telefono:</td><td>${tel}</td></tr>`;
