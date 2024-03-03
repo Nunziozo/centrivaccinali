@@ -4,7 +4,7 @@
     <title>Ricerca Centri Vaccinali</title>
 </head>
 <body>
-    <label for="comuneInput">Comune di residenza:</label>
+    <label for="comuneInput">Comune di residenza o domicilio:</label>
     <input type="text" id="comuneInput" placeholder="Comune"/>
     <button onclick="cercaCentroVaccinale()">Cerca</button>
     <div id="risultati"></div>
@@ -4416,10 +4416,17 @@
     function cercaCentroVaccinale() {
     const comuneInput = document.getElementById('comuneInput').value.trim().toLowerCase();
     const risultatiDiv = document.getElementById('risultati');
-    risultatiDiv.innerHTML = ''; // Pulisce i risultati precedenti
+    risultatiDiv.innerHTML = '';
 
     const comuneTrovato = dataset.find(item => item.Comune.toLowerCase().includes(comuneInput));
 
+if (comuneTrovato) {
+        if(comuneTrovato.Zona) {
+            const zonaHeader = document.createElement('h2');
+            zonaHeader.textContent = `Zona ${comuneTrovato.Zona}`;
+            risultatiDiv.appendChild(zonaHeader);
+        }
+        
     if (comuneTrovato) {
         for(let i = 1; i <= 8; i++) { // Cicla fino all'8 come richiesto
             const centroVaccinale = comuneTrovato[`Centro Vaccinale ${i}`];
