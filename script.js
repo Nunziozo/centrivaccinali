@@ -1,25 +1,19 @@
 const dataset = [
+  [
   {
-    "Comune": "Comune",
-    "Zona": "Zona",
-    "CentriVaccinali": [
-      {
-        "Nome": "Centro Vaccinale 1",
-        "Indirizzo": "Indirizzo 1",
-        "Telefono": "Tel 1",
-        "Email": "Mail 1"
-      },
-      {
-        "Nome": "Centro Vaccinale 2",
-        "Indirizzo": "Indirizzo 2",
-        "Telefono": "Tel 2",
-        "Email": "Mail 2"
-      }
-      // Aggiungi fino a 9 centri vaccinali per comune se necessario
-    ]
+    "Comune": "ComuneA",
+    "Zona": "Zona1",
+    "Centro Vaccinale 1": "Nome Centro 1",
+    "Indirizzo 1": "Indirizzo Centro 1",
+    "Tel 1": "Telefono Centro 1",
+    "Mail 1": "Email Centro 1",
+    "Centro Vaccinale 9": "Nome Centro 9",
+    "Indirizzo 9": "Indirizzo Centro 9",
+    "Tel 9": "Telefono Centro 9",
+    "Mail 9": "Email Centro 9"
   },
-  // Aggiungi altri comuni qui
-];
+]
+
 
 function trovaCentriVaccinali() {
     const comuneInput = document.getElementById('comuneInput').value.trim().toLowerCase();
