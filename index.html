@@ -4421,25 +4421,26 @@
     const comuneTrovato = dataset.find(item => item.Comune.toLowerCase().includes(comuneInput));
 
     if (comuneTrovato) {
-        // Elabora tutti i campi numerati per ciascuna categoria (es. Centro Vaccinale, Comune, Indirizzo, ecc.)
-        for(let i = 1; i <= 8; i++) {
+        for(let i = 1; i <= 8; i++) { // Cicla fino all'8 come richiesto
             const centroVaccinale = comuneTrovato[`Centro Vaccinale ${i}`];
             const comune = comuneTrovato[`Comune ${i}`];
             const indirizzo = comuneTrovato[`Indirizzo ${i}`];
             const tel = comuneTrovato[`Tel ${i}`];
             const mail = comuneTrovato[`Mail ${i}`];
 
-            // Se almeno uno dei campi (ad esempio, Centro Vaccinale) non è vuoto, visualizza i dati
+            // Crea una tabella solo se c'è almeno un dato per il Centro Vaccinale corrente
             if (centroVaccinale || comune || indirizzo || tel || mail) {
-                risultatiDiv.innerHTML += `
-                    <div>
-                        <p>Centro Vaccinale ${i}: ${centroVaccinale || 'N/D'}</p>
-                        <p>Comune ${i}: ${comune || 'N/D'}</p>
-                        <p>Indirizzo ${i}: ${indirizzo || 'N/D'}</p>
-                        <p>Tel ${i}: ${tel || 'N/D'}</p>
-                        <p>Mail ${i}: ${mail || 'N/D'}</p>
-                    </div>
-                `;
+                let tabella = `<h3>Centro Vaccinale ${i}</h3><table><tbody>`;
+
+                // Aggiungi ogni riga solo se il dato non è vuoto
+                if (centroVaccinale) tabella += `<tr><td>Centro Vaccinale</td><td>${centroVaccinale}</td></tr>`;
+                if (comune) tabella += `<tr><td>Comune</td><td>${comune}</td></tr>`;
+                if (indirizzo) tabella += `<tr><td>Indirizzo</td><td>${indirizzo}</td></tr>`;
+                if (tel) tabella += `<tr><td>Telefono</td><td>${tel}</td></tr>`;
+                if (mail) tabella += `<tr><td>Email</td><td>${mail}</td></tr>`;
+
+                tabella += `</tbody></table>`;
+                risultatiDiv.innerHTML += tabella; // Aggiunge la tabella al div dei risultati
             }
         }
     } else {
