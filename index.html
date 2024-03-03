@@ -4,7 +4,7 @@
     <title>Ricerca Centri Vaccinali</title>
 </head>
 <body>
-    <label for="comuneInput">Inserisci il Comune di residenza:</label>
+    <label for="comuneInput">Comune di residenza:</label>
     <input type="text" id="comuneInput" placeholder="Comune"/>
     <button onclick="cercaCentroVaccinale()">Cerca</button>
     <div id="risultati"></div>
@@ -4916,7 +4916,7 @@
         function cercaCentroVaccinale() {
             const comuneInput = document.getElementById('comuneInput').value;
             const risultatiDiv = document.getElementById('risultati');
-            risultatiDiv.innerHTML = ''; // Pulisce i risultati precedenti
+            risultatiDiv.innerHTML = ''; 
 
             const comuneTrovato = dataset.find(item => item.Comune.toLowerCase() === comuneInput.toLowerCase());
 
@@ -4938,7 +4938,7 @@
                     }
                 });
             } else {
-                risultatiDiv.textContent = 'Nessun risultato trovato per il comune inserito.';
+                risultatiDiv.textContent = 'Nessun risultato trovato per il comune inserito, assicurarsi di aver inserito correttamente il nome';
             }
         }
     </script>
