@@ -4425,17 +4425,15 @@ if (comuneTrovato) {
             const zonaHeader = document.createElement('h2');
             zonaHeader.textContent = `Zona ${comuneTrovato.Zona}`;
             risultatiDiv.appendChild(zonaHeader);
-        }
-        
-    if (comuneTrovato) {
-        for(let i = 1; i <= 8; i++) { // Cicla fino all'8 come richiesto
+      
+        for(let i = 1; i <= 8; i++) {
             const centroVaccinale = comuneTrovato[`Centro Vaccinale ${i}`];
             const comune = comuneTrovato[`Comune ${i}`];
             const indirizzo = comuneTrovato[`Indirizzo ${i}`];
             const tel = comuneTrovato[`Tel ${i}`];
             const mail = comuneTrovato[`Mail ${i}`];
 
-            // Crea una tabella solo se c'è almeno un dato per il Centro Vaccinale corrente
+        
             if (centroVaccinale || comune || indirizzo || tel || mail) {
                 let tabella = `<h3>Centro Vaccinale ${i}</h3><table><tbody>`;
 
