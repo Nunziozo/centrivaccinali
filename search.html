@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Centri Vaccinali per Comune</title>
+    <style>
+        /* Stili di base */
+        body { font-family: Arial, sans-serif; }
+        .suggestions { margin-top: 10px; }
+        .suggestion { cursor: pointer; padding: 5px; border: 1px solid #ddd; }
+        .suggestion:hover { background-color: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <h1>Trova il Centro Vaccinale</h1>
+    <label for="searchInput">Digita il tuo Comune:</label>
+    <input type="text" id="searchInput" oninput="suggestComune(this.value)">
+    <div id="suggestions" class="suggestions"></div>
+    <div id="vaccineCenters"></div>
+
+    <script>    
+
+      const comunizona = [
+    {"Comune": "Carrara", "Zona": "Apuane"},
+    {"Comune": "Massa", "Zona": "Apuane"},
+    {"Comune": "Montignoso", "Zona": "Apuane"},
+    // Aggiungi altri comuni e zone qui
+];
+
+const centrizona = [
+    // Aggiungi i dati dei centri vaccinali qui
+];
+
+function suggestComune(input) {
+    let suggestions = document.getElementById('suggestions');
+    suggestions.innerHTML = ''; // Pulisce i suggerimenti precedenti
+
+    if (input.length > 0) {
+        const filteredComuni = comunizona.filter(comune => 
+            comune.Comune.toLowerCase().startsWith(input.toLowerCase()));
+
+        filteredComuni.forEach(comune => {
+            let div = document.createElement('div');
+            div.innerHTML = comune.Comune;
+            div.className = 'suggestion';
+            div.onclick = function() {
+                document.getElementById('searchInput').value = comune.Comune;
+                suggestions.innerHTML = ''; // Pulisce i suggerimenti
+                showVaccineCenters(comune.Zona);
+            };
+            suggestions.appendChild(div);
+        });
+    }
+}
+
+function showVaccineCenters(zona) {
+    const zonaData = centrizona.find(cz => cz.Zona === zona);
+    let vaccineCentersDiv = document.getElementById('vaccineCenters');
+    vaccineCentersDiv.innerHTML = ''; // Pulisce i centri vaccinali precedenti
+
+    if (zonaData) {
+        // Costruisce l'HTML per mostrare i dettagli dei centri vaccinali
+        for (let i = 1; i <= 8; i++) {
+            if (zonaData[`Centro Vaccinale ${i}`]) {
+                let centerDiv = document.createElement('div');
+                centerDiv.innerHTML = `<h3>${zonaData[`Centro Vaccinale ${i}`]}</h3>
+                                       <p>Comune: ${zonaData[`Comune ${i}`]}</p>
+                                       <p>Indirizzo: ${zonaData[`Indirizzo ${i}`]}</p>
+                                       <p>Telefono: ${zonaData[`Tel ${i}`]}</p>
+                                       <p>Email: ${zonaData[`Mail ${i}`]}</p>`;
+                vaccineCentersDiv.appendChild(centerDiv);
+            }
+        }
+    } else {
+        vaccineCentersDiv.innerHTML = '<p>Nessun centro vaccinale trovato per questa zona.</p>';
+    }
+}
+    </script>
+</body>
+</html>
+
+
