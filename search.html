@@ -23,6 +23,14 @@
 
     <script>    
 
+        document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('searchForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Previene il comportamento di default del form
+        const inputComune = document.getElementById('searchInput').value.trim();
+        findZoneFromComune(inputComune.toLowerCase());
+    });
+});
+        
       const comunizona = [
     {
         "Comune": "Carrara",
@@ -848,49 +856,30 @@ const centrizona = [
     }
 ];
 
-function suggestComune(input) {
-    let suggestions = document.getElementById('suggestions');
-    suggestions.innerHTML = ''; // Pulisce i suggerimenti precedenti
-
-    if (input.length > 0) {
-        const filteredComuni = comunizona.filter(comune => 
-            comune.Comune.toLowerCase().startsWith(input.toLowerCase()));
-
-        filteredComuni.forEach(comune => {
-            let div = document.createElement('div');
-            div.innerHTML = comune.Comune;
-            div.className = 'suggestion';
-            div.onclick = function() {
-                document.getElementById('searchInput').value = comune.Comune;
-                suggestions.innerHTML = ''; // Pulisce i suggerimenti
-                showVaccineCenters(comune.Zona);
-            };
-            suggestions.appendChild(div);
-        });
+function findZoneFromComune(comuneInput) {
+    const comuneData = comunizona.find(comune => comune.Comune.toLowerCase() === comuneInput);
+    if (comuneData) {
+        showVaccineCenters(comuneData.Zona);
+    } else {
+        document.getElementById('vaccineCenters').innerHTML = '<p>Nessun centro vaccinale trovato per questo comune.</p>';
     }
 }
 
 function showVaccineCenters(zona) {
-    const zonaData = centrizona.find(cz => cz.Zona === zona);
-    let vaccineCentersDiv = document.getElementById('vaccineCenters');
-    vaccineCentersDiv.innerHTML = ''; // Pulisce i centri vaccinali precedenti
-
-    if (zonaData) {
-        // Costruisce l'HTML per mostrare i dettagli dei centri vaccinali
-        for (let i = 1; i <= 8; i++) {
-            if (zonaData[`Centro Vaccinale ${i}`]) {
-                let centerDiv = document.createElement('div');
-                centerDiv.innerHTML = `<h3>${zonaData[`Centro Vaccinale ${i}`]}</h3>
-                                       <p>Comune: ${zonaData[`Comune ${i}`]}</p>
-                                       <p>Indirizzo: ${zonaData[`Indirizzo ${i}`]}</p>
-                                       <p>Telefono: ${zonaData[`Tel ${i}`]}</p>
-                                       <p>Email: ${zonaData[`Mail ${i}`]}</p>`;
-                vaccineCentersDiv.appendChild(centerDiv);
-            }
-        }
-    } else {
-        vaccineCentersDiv.innerHTML = '<p>Nessun comune trovato, assicurati di aver digitato correttamente!</p>';
+    const zonaData = centrizona.find(zonaItem => zonaItem.Zona === zona);
+    if (!zonaData) {
+        document.getElementById('vaccineCenters').innerHTML = '<p>Nessun centro vaccinale trovato per questa zona.</p>';
+        return;
     }
+    let html = `<h2>Centri Vaccinali in Zona ${zona}</h2>`;
+    for (let i = 1; i <= 8; i++) { // Assumendo ci siano fino a 8 centri vaccinali per zona
+        if (zonaData[`Centro Vaccinale ${i}`]) {
+            html += `<div><strong>${zonaData[`Centro Vaccinale ${i}`]}</strong> - ${zonaData[`Comune ${i}`]}, ${zonaData[`Indirizzo ${i}`]}<br>
+            Tel: ${zonaData[`Tel ${i}`]}<br>
+            Mail: <a href="mailto:${zonaData[`Mail ${i}`]}">${zonaData[`Mail ${i}`]}</a></div><br>`;
+        }
+    }
+    document.getElementById('vaccineCenters').innerHTML = html;
 }
     </script>
 </body>
