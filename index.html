@@ -9,13 +9,36 @@
         .suggestion { cursor: pointer; padding: 5px; border: 1px solid #ddd; }
         .suggestion:hover { background-color: #f0f0f0; }
        table {border-collapse: collapse;}
-       th, td {border: 1px solid red;}
+       th, td {border: 1px #00f}
+        nav {background-color: #00f; /* Sfondo azzurro */
+    color: white;
+    padding: 10px;}
+        nav a {color: white;
+    text-decoration: none;
+    padding: 0 10px;}
+        header {color: #00f; /* Testo azzurro */
+    padding: 20px;
+    text-align: center;}
+        footer {background-color: #00f; /* Sfondo azzurro */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;}
     </style>
 </head>
 <body>
 <header>
     <h1>Cerca il centro vaccinale della tua zona</h1>
 </header>
+<nav>
+        <!-- Qui puoi inserire i link della tua barra di navigazione -->
+        <a href="#">Cerca</a> | 
+        <a href="#">Elenco per zona 2</a> | 
+        <a href="#">Contatti</a>
+    </nav>
+    
     <label for="comuneInput">Comune di residenza o domicilio:</label>
 <input type="text" id="comuneInput" placeholder="Comune" list="comuneList"/>
 <datalist id="comuneList">
@@ -4486,7 +4509,7 @@ function popolaDatalistConComuni() {
     </script>
 
 <footer>
-    Powered by GitHub | Università di Pisa | Azienda USL Toscana Nord-Ovest | 2024
+    ©2024 | Powered by GitHub | Università di Pisa | Azienda USL Toscana Nord-Ovest |
 </footer>
 </body>
 </html>
