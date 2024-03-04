@@ -4,19 +4,28 @@
     <meta charset="UTF-8">
     <title>Ricerca centri vaccinali</title>
     <style>
-        body {font-family: TW Cent MT, sans-serif; height: 100%; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; flex-direction: column;}
+        body { font-family: 'Tw Cen MT', Arial, sans-serif;; height: 100%; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; flex-direction: column;}
         .container {max-width: 100vw; text-align: center;}
         .suggestions { margin-top: 10px; }
         .suggestion { cursor: pointer; padding: 5px; border: 1px solid #ddd; }
         .suggestion:hover { background-color: #f0f0f0; }
        table {border-collapse: collapse;}
        th, td {border: 1px solid #00f}
-        nav {background-color: #00f; /* Sfondo azzurro */
+       * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;}
+
+nav {width: 100%; 
+    background-color: #00f;
     color: white;
-    padding: 10px;}
-        nav a {color: white;
+    padding: 10px 0; text-align: center;}
+nav a {
+    color: white;
     text-decoration: none;
-    padding: 0 10px;}
+    padding: 0 15px;}
+nav a:hover {background-color: #009;}
+        
         header {color: #00f; /* Testo azzurro */
     padding: 20px;
     text-align: center;}
