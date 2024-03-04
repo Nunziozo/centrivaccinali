@@ -1,0 +1,402 @@
+[
+    {
+        "Comune": "Carrara",
+        "Zona": "Apuane"
+    },
+    {
+        "Comune": "Massa",
+        "Zona": "Apuane"
+    },
+    {
+        "Comune": "Montignoso",
+        "Zona": "Apuane"
+    },
+    {
+        "Comune": "Aulla",
+        "Zona": "Lunigiana"
+    },
+    {
+        "Comune": "Bagnone",
+        "Zona": "Lunigiana"
+    },
+    {
+        "Comune": "Casola in Lunigiana",
+        "Zona": "Lunigiana"
+    },
+    {
+        "Comune": "Comano",
+        "Zona": "Lunigiana"
+    },
+    {
+        "Comune": "Filattiera",
+        "Zona": "Lunigiana"
+    },
+    {
+        "Comune": "Fivizzano",
+        "Zona": "Lunigiana"
+    },
+    {
+        "Comune": "Fosdinuovo",
+        "Zona": "Lunigiana"
+    },
+    {
+        "Comune": "Licciana Nardi",
+        "Zona": "Lunigiana"
+    },
+    {
+        "Comune": "Mulazzo",
+        "Zona": "Lunigiana"
+    },
+    {
+        "Comune": "Podenzana",
+        "Zona": "Lunigiana"
+    },
+    {
+        "Comune": "Pontremoli",
+        "Zona": "Lunigiana"
+    },
+    {
+        "Comune": "Tresana",
+        "Zona": "Lunigiana"
+    },
+    {
+        "Comune": "Villafranca in Lunigiana",
+        "Zona": "Lunigiana"
+    },
+    {
+        "Comune": "Zeri",
+        "Zona": "Lunigiana"
+    },
+    {
+        "Comune": "Altopascio",
+        "Zona": "Piana di Lucca"
+    },
+    {
+        "Comune": "Capannori",
+        "Zona": "Piana di Lucca"
+    },
+    {
+        "Comune": "Lucca",
+        "Zona": "Piana di Lucca"
+    },
+    {
+        "Comune": "Montecarlo",
+        "Zona": "Piana di Lucca"
+    },
+    {
+        "Comune": "Pescaglia",
+        "Zona": "Piana di Lucca"
+    },
+    {
+        "Comune": "Porcari",
+        "Zona": "Piana di Lucca"
+    },
+    {
+        "Comune": "Villa Basilica",
+        "Zona": "Piana di Lucca"
+    },
+    {
+        "Comune": "Bagni di Lucca",
+        "Zona": "Valle del Serchio"
+    },
+    {
+        "Comune": "Barga",
+        "Zona": "Valle del Serchio"
+    },
+    {
+        "Comune": "Borgo a Mozzano",
+        "Zona": "Valle del Serchio"
+    },
+    {
+        "Comune": "Camporgiano",
+        "Zona": "Valle del Serchio"
+    },
+    {
+        "Comune": "Careggine",
+        "Zona": "Valle del Serchio"
+    },
+    {
+        "Comune": "Castelnuovo di Garfagnana",
+        "Zona": "Valle del Serchio"
+    },
+    {
+        "Comune": "Castiglione di Garfagnana",
+        "Zona": "Valle del Serchio"
+    },
+    {
+        "Comune": "Coreglia Antelminelli",
+        "Zona": "Valle del Serchio"
+    },
+    {
+        "Comune": "Fabbriche di Vergemoli",
+        "Zona": "Valle del Serchio"
+    },
+    {
+        "Comune": "Fosciandora",
+        "Zona": "Valle del Serchio"
+    },
+    {
+        "Comune": "Gallicano",
+        "Zona": "Valle del Serchio"
+    },
+    {
+        "Comune": "Giuncugnano",
+        "Zona": "Valle del Serchio"
+    },
+    {
+        "Comune": "Minucciano",
+        "Zona": "Valle del Serchio"
+    },
+    {
+        "Comune": "Molazzana",
+        "Zona": "Valle del Serchio"
+    },
+    {
+        "Comune": "Piazza al Serchio",
+        "Zona": "Valle del Serchio"
+    },
+    {
+        "Comune": "Pieve Fosciana",
+        "Zona": "Valle del Serchio"
+    },
+    {
+        "Comune": "San Romano in Garfagnana",
+        "Zona": "Valle del Serchio"
+    },
+    {
+        "Comune": "Camaiore",
+        "Zona": "Versilia"
+    },
+    {
+        "Comune": "Forte dei Marmi",
+        "Zona": "Versilia"
+    },
+    {
+        "Comune": "Massarosa",
+        "Zona": "Versilia"
+    },
+    {
+        "Comune": "Pietrasanta",
+        "Zona": "Versilia"
+    },
+    {
+        "Comune": "Seravezza",
+        "Zona": "Versilia"
+    },
+    {
+        "Comune": "Stazzema",
+        "Zona": "Versilia"
+    },
+    {
+        "Comune": "Viareggio",
+        "Zona": "Versilia"
+    },
+    {
+        "Comune": "Calci",
+        "Zona": "Pisana"
+    },
+    {
+        "Comune": "Cascina",
+        "Zona": "Pisana"
+    },
+    {
+        "Comune": "Crespina-Lorenzana",
+        "Zona": "Pisana"
+    },
+    {
+        "Comune": "Fauglia",
+        "Zona": "Pisana"
+    },
+    {
+        "Comune": "Orciano Pisano",
+        "Zona": "Pisana"
+    },
+    {
+        "Comune": "Pisa",
+        "Zona": "Pisana"
+    },
+    {
+        "Comune": "San Giuliano Terme",
+        "Zona": "Pisana"
+    },
+    {
+        "Comune": "Vecchiano",
+        "Zona": "Pisana"
+    },
+    {
+        "Comune": "Vicopisano",
+        "Zona": "Pisana"
+    },
+    {
+        "Comune": "Bientina",
+        "Zona": "Alta Val di Cecina e Valdera"
+    },
+    {
+        "Comune": "Buti",
+        "Zona": "Alta Val di Cecina e Valdera"
+    },
+    {
+        "Comune": "Calcinaia",
+        "Zona": "Alta Val di Cecina e Valdera"
+    },
+    {
+        "Comune": "Capannoli",
+        "Zona": "Alta Val di Cecina e Valdera"
+    },
+    {
+        "Comune": "Casciana Terme-Lari",
+        "Zona": "Alta Val di Cecina e Valdera"
+    },
+    {
+        "Comune": "Chianni",
+        "Zona": "Alta Val di Cecina e Valdera"
+    },
+    {
+        "Comune": "Lajatico",
+        "Zona": "Alta Val di Cecina e Valdera"
+    },
+    {
+        "Comune": "Palaia",
+        "Zona": "Alta Val di Cecina e Valdera"
+    },
+    {
+        "Comune": "Peccioli",
+        "Zona": "Alta Val di Cecina e Valdera"
+    },
+    {
+        "Comune": "Ponsacco",
+        "Zona": "Alta Val di Cecina e Valdera"
+    },
+    {
+        "Comune": "Pontedera",
+        "Zona": "Alta Val di Cecina e Valdera"
+    },
+    {
+        "Comune": "Santa Maria a Monte",
+        "Zona": "Alta Val di Cecina e Valdera"
+    },
+    {
+        "Comune": "Terricciola. Castelnuovo Val di Cecina",
+        "Zona": "Alta Val di Cecina e Valdera"
+    },
+    {
+        "Comune": "Montecatini Val di Cecina",
+        "Zona": "Alta Val di Cecina e Valdera"
+    },
+    {
+        "Comune": "Pomarance",
+        "Zona": "Alta Val di Cecina e Valdera"
+    },
+    {
+        "Comune": "Volterra",
+        "Zona": "Alta Val di Cecina e Valdera"
+    },
+    {
+        "Comune": "Capraia Isola",
+        "Zona": "Livornese"
+    },
+    {
+        "Comune": "Collesalvetti",
+        "Zona": "Livornese"
+    },
+    {
+        "Comune": "Livorno",
+        "Zona": "Livornese"
+    },
+    {
+        "Comune": "Casale Marittimo",
+        "Zona": "Valli Etrusche"
+    },
+    {
+        "Comune": "Castellina Marittima",
+        "Zona": "Valli Etrusche"
+    },
+    {
+        "Comune": "Guardistallo",
+        "Zona": "Valli Etrusche"
+    },
+    {
+        "Comune": "Montescudaio",
+        "Zona": "Valli Etrusche"
+    },
+    {
+        "Comune": "Riparbella",
+        "Zona": "Valli Etrusche"
+    },
+    {
+        "Comune": "Santa Luce",
+        "Zona": "Valli Etrusche"
+    },
+    {
+        "Comune": "Bibbona",
+        "Zona": "Valli Etrusche"
+    },
+    {
+        "Comune": "Castagneto Carducci",
+        "Zona": "Valli Etrusche"
+    },
+    {
+        "Comune": "Cecina",
+        "Zona": "Valli Etrusche"
+    },
+    {
+        "Comune": "Rosignano Marittimo",
+        "Zona": "Valli Etrusche"
+    },
+    {
+        "Comune": " Monteverdi Marittimo",
+        "Zona": "Valli Etrusche"
+    },
+    {
+        "Comune": "Campiglia Marittima",
+        "Zona": "Valli Etrusche"
+    },
+    {
+        "Comune": "Piombino",
+        "Zona": "Valli Etrusche"
+    },
+    {
+        "Comune": "San Vincenzo",
+        "Zona": "Valli Etrusche"
+    },
+    {
+        "Comune": "Sassetta",
+        "Zona": "Valli Etrusche"
+    },
+    {
+        "Comune": "Suvereto",
+        "Zona": "Valli Etrusche"
+    },
+    {
+        "Comune": "Campo nell'Elba",
+        "Zona": "Elbana"
+    },
+    {
+        "Comune": "Capoliveri",
+        "Zona": "Elbana"
+    },
+    {
+        "Comune": "Marciana",
+        "Zona": "Elbana"
+    },
+    {
+        "Comune": "Marciana Marina",
+        "Zona": "Elbana"
+    },
+    {
+        "Comune": "Porto Azzurro",
+        "Zona": "Elbana"
+    },
+    {
+        "Comune": "Portoferraio",
+        "Zona": "Elbana"
+    },
+    {
+        "Comune": "Rio Marina",
+        "Zona": "Elbana"
+    },
+    {
+        "Comune": "Rio nell'Elba",
+        "Zona": "Elbana"
+    }
+]
