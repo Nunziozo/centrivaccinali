@@ -5,9 +5,30 @@
 </head>
 <body>
     <label for="comuneInput">Comune di residenza o domicilio:</label>
-    <input type="text" id="comuneInput" placeholder="Comune"/>
-    <button onclick="cercaCentroVaccinale()">Cerca</button>
-    <div id="risultati"></div>
+<input type="text" id="comuneInput" placeholder="Comune" list="comuneList"/>
+<datalist id="comuneList">
+    document.addEventListener("DOMContentLoaded", () => {
+    popolaDatalistConComuni();
+    document.getElementById("comuneInput").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            cercaCentroVaccinale();
+        }
+    });
+});
+
+function popolaDatalistConComuni() {
+    const comuneList = document.getElementById('comuneList');
+    const comuniUnici = [...new Set(dataset.map(item => item.Comune))];
+    comuniUnici.forEach(comune => {
+        const option = document.createElement('option');
+        option.value = comune;
+        comuneList.appendChild(option);
+    });
+}
+</datalist>
+<button onclick="cercaCentroVaccinale()">Cerca</button>
+<div id="risultati"></div>
 
     <script>
         const dataset = [
